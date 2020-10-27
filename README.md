@@ -1,9 +1,9 @@
 <div align="center">
-  <a href="https://play.google.com/store/apps/details?id=com.ma7moud3ly.makeyourbook" target="_blank">
-    <img src="images/lcon.png" alt="drawing" width="100"/>
+  <a href="https://play.google.com/store/apps/details?id=com.ma7moud3ly.akla" target="_blank">
+    <img src="images/logo.png" alt="drawing" width="100"/>
   </a>
 
-# SHERBINYAT شربينيات 
+# Akla أكلة  
 Food Recipe application..
 </div>
 
@@ -14,11 +14,18 @@ Food Recipe application..
 <div>
   <img src="images/img1.png" alt="drawing" width="200"/>
   <img src="images/img2.png" alt="drawing" width="200"/>
+  <img src="images/img3.png" alt="drawing" width="200"/>
 </div>
 <br>
 <div>
-  <img src="images/img3.png" alt="drawing" width="200"/>
   <img src="images/img4.png" alt="drawing" width="200"/>
+  <img src="images/img5.png" alt="drawing" width="200"/>
+  <img src="images/img6.png" alt="drawing" width="200"/>
+</div>
+<br>
+<div>
+  <img src="images/img7.png" alt="drawing" width="200"/>
+  <img src="images/img8.png" alt="drawing" width="200"/>
 </div>
 <br>
 
@@ -28,32 +35,19 @@ Food Recipe application..
 ### Technologies:
 <li>Kotlin</li>
 <li>MVVM architecture</li>
+<li>Kotlin coroutins and live data</li>
 <li>Data/View binding</li>
+<li>Room Database</li>
 <li>Material components</li>
 
 ### Third parties:
 - Retorfit
 - Picasso
-- (UStoreLibrary)[https://github.com/Ma7moud3ly/UStoreLibrary]
 
-### How To Run
-<div align="left">
-
-- clone the repo
-
-- ```git clone https://github.com/Ma7moud3ly/recipe-app.git```
-
-- then open an existing app with android studio..build..run.
-- or goto the repo directory and bulid with gradle
-
-- ```gradlew assembleDebug```
-
-- finally install and run in the emulator..
-
-- ```gradlew installDebug```
-
-</div>
+### more..
+- Python used for recipes scrapping.
+- Node.js used for building the web service
 
 <br>
-[Download]()
+[Download](https://play.google.com/store/apps/details?id=com.ma7moud3ly.akla)
 </div>
