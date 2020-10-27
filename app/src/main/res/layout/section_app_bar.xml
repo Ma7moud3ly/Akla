@@ -51,7 +51,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/majalla"
+                android:fontFamily="@font/majallab"
                 android:gravity="center"
                 android:paddingHorizontal="5dp"
                 android:singleLine="true"
