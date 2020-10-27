@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.ma7moud3ly.akla.util.CONSTANTS" />
+
+        <variable
+            name="observer"
+            type="com.ma7moud3ly.akla.observers.RecipeObserver" />
+
+        <variable
+            name="recipe"
+            type="com.ma7moud3ly.akla.api.Recipe" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/my_card_view"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:onClick="@{(v)->observer.openRecipeDetails(v,recipe)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/recipe_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/recipe1"
+                app:layout_constraintBottom_toTopOf="@id/recipe_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadImage='@{recipe.images[0]}' />
+
+            <TextView
+                style="@style/recipe_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:background="@color/transBlack2"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:singleLine="false"
+                android:text='@{recipe.name,default="وجبة طعام جيدة"}'
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="@{observer.split.intValue()==2?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/recipe_thumb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/recipe_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:orientation="vertical"
+                android:visibility="@{observer.split.intValue()==1?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipe_thumb">
+
+                <TextView
+                    android:id="@+id/recipe_name"
+                    style="@style/recipe_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:singleLine="true"
+                    android:text='@{recipe.name,default=""}'
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/recipe_headline"
+                    style="@style/recipe_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:scrollHorizontally="false"
+                    android:text='@{recipe.description,default=""}'
+                    android:textColor="@color/dark" />
+
+                <LinearLayout
+                    android:id="@+id/recipe_more_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:gravity="center|start"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/recipe_cuisine"
+                        style="@style/my_chip_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{recipe.cuisine}'
+                        app:chipIcon="@drawable/flag" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/recipe_time"
+                        style="@style/my_chip_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{String.valueOf(recipe.prepTime+recipe.totalTime)+" min"}'
+                        app:chipIcon="@drawable/time" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

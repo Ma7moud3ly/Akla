@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f9443d</color>
+    <color name="colorPrimaryDark">#f9443d</color>
+    <color name="colorAccent">#000000</color>
+    <color name="darkWhite">#ECECEC</color>
+    <color name="dark">#3E3E3E</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transBlack">#73000000</color>
+    <color name="transBlack2">#33000000</color>
+    <color name="transGreen">#804F802A</color>
+    <color name="listStepColor">@color/darkWhite</color>
+    <color name="listStepTextColor">@color/black</color>
+
+</resources>

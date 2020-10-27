@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">أكلة AKLA</string>
+    <string name="app_name_en">AKLA</string>
+    <string name="app_name_ar">أكلة</string>
+    <!--activity_recipe layout-->
+    <string name="loading">Loading...</string>
+    <string name="no_internet">لا يوجد إتصال بالإنترنت!</string>
+    <string name="search">Search</string>
+    <string name="search_title">ابحث عن أكلتك المفضلة</string>
+    <string name="search_results">نتائج البحث</string>
+    <string name="fav_label">وصفاتك المفضلة</string>
+    <string name="retry_label">حاول مرة آخري!</string>
+    <string name="fav">المفضلة</string>
+    <!--activity_recipe_details layout-->
+    <string name="recipe_details">Recipe Details</string>
+    <string name="recipe_time">التحضير</string>
+    <string name="recipe_calories">السعرات الحرارية</string>
+    <string name="recipe_yield">تكفي</string>
+    <string name="recipe_cuisine">مطبخ</string>
+    <string name="ingredients">المكونات</string>
+    <string name="instructions">الخطوات</string>
+    <!--activity_about layout-->
+    <string name="about">عن التطبيق</string>
+    <string name="share">مشاركة التطبيق</string>
+    <string name="rate">التقييم علي المتجر</string>
+    <string name="contact">التواصل مع المطور</string>
+</resources>

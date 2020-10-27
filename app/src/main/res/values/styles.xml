@@ -1,0 +1,217 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:layoutDirection">rtl</item>
+    </style>
+
+    <style name="my_app_bar_btn" parent="ripple_click">
+        <item name="android:padding">3dp</item>
+        <item name="tint">@color/black</item>
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="recipe_text_view" parent="">
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">start</item>
+        <item name="fontFamily">@font/majallab</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="recipe_details_text_view">
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="recipe_details_text_view2" parent="">
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="recipe_text_view2" parent="">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:background">@color/darkWhite</item>
+    </style>
+
+    <style name="my_text_view" parent="">
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="my_chip_text_view" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/advertisingbold</item>
+    </style>
+
+    <style name="my_chip_icon" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="tint">@color/white</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="my_chip" parent="ripple_click">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
+    </style>
+
+
+    <style name="my_radio_button" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:buttonTint">@color/colorPrimary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="my_image_view" parent="ripple_click">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:rotation">90</item>
+    </style>
+
+    <style name="footer_image_view" parent="ripple_click">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="tint">@color/colorPrimary</item>
+    </style>
+
+    <style name="tools_image_view" parent="footer_image_view">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="ripple_click" parent="">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+    <style name="tools_check_box">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="tint">@color/colorPrimary</item>
+        <item name="android:buttonTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="my_chip_view" parent="">
+        <item name="fontFamily">@font/majallab</item>
+        <item name="chipEndPadding">5dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="chipStrokeColor">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="chipBackgroundColor">@color/colorPrimary</item>
+        <item name="chipIconTint">@color/white</item>
+        <item name="chipStartPadding">5dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="my_card_view" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="about_text_view" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/majallab</item>
+        <item name="android:layout_marginStart">@dimen/about_margin_start</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start|center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/about_text_view_font_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="about_image_view" parent="">
+        <item name="android:layout_width">@dimen/about_image_view_wh</item>
+        <item name="android:layout_height">@dimen/about_image_view_wh</item>
+        <item name="tint">@color/colorPrimary</item>
+    </style>
+
+    <style name="about_vr" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/about_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/about_margin_end</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="my_bubble" parent="">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_marginLeft">@dimen/bubble_rl_margin</item>
+        <item name="android:layout_marginRight">@dimen/bubble_rl_margin</item>
+        <item name="android:layout_marginTop">@dimen/bubble_top_margin</item>
+        <item name="android:background">@drawable/bubble</item>
+        <item name="android:gravity">center</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="my_bubble_btn" parent="ripple_click">
+        <item name="android:padding">4dp</item>
+        <item name="tint">@color/white</item>
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="splash_logo_image" parent="">
+        <item name="android:layout_width">@dimen/splash_logo_wh</item>
+        <item name="android:layout_height">@dimen/splash_logo_wh</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:paddingEnd">30dp</item>
+        <item name="android:paddingStart">30dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/logo</item>
+    </style>
+
+    <style name="splash_text_view" parent="">
+        <item name="android:gravity">center|start</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">32sp</item>
+
+    </style>
+
+</resources>

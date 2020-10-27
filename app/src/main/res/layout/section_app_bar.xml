@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="observer"
+            type="com.ma7moud3ly.akla.observers.RecipeObserver" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="@dimen/header_top_padding"
+        android:paddingBottom="8dp">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_corners"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/btn_search"
+                style="@style/my_app_bar_btn"
+                android:visibility="@{observer.isSearch().booleanValue()?View.GONE:View.VISIBLE}"
+                app:srcCompat="@drawable/search" />
+
+            <ImageView
+                android:id="@+id/btn_clear_search"
+                style="@style/my_app_bar_btn"
+                android:visibility="@{observer.isSearch().booleanValue()?View.VISIBLE:View.GONE}"
+                app:srcCompat="@drawable/close" />
+
+            <TextView
+                android:id="@+id/search_box"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/majalla"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:singleLine="true"
+                android:text="@string/search_title"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="recipe"
+            type="com.ma7moud3ly.akla.api.Recipe" />
+
+        <variable
+            name="observer"
+            type="com.ma7moud3ly.akla.observers.RecipeDetailsObserver" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:animateLayoutChanges="true"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transBlack"
+            android:elevation="1dp"
+            android:gravity="start|center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="@dimen/header_top_padding"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:onClick="back"
+                android:src="@drawable/close"
+                app:tint="@color/white" />
+
+            <TextView
+                style="@style/recipe_details_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:textSize="20sp"
+                android:fontFamily="@font/majallab"
+                android:text="@{recipe.name}"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+
+            <CheckBox
+                android:id="@+id/fav_toggle"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/white"
+                android:button="@drawable/faved"
+                android:buttonTint="@color/white"
+                android:checked="false" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:id="@+id/scrollView"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/recipe_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:clickable="true"
+                    android:cropToPadding="true"
+                    android:minHeight="100dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadImage='@{recipe.images[0]}' />
+
+                <LinearLayout
+                    android:id="@+id/recipe_section1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/recipe_details_sections_padding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_image">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/chip_cuisine"
+                        style="@style/my_chip"
+                        android:background="@drawable/round_corner3">
+
+                        <TextView
+                            android:id="@+id/cuisine_label"
+                            style="@style/my_chip_text_view"
+                            android:gravity="center|bottom"
+                            android:text="@string/recipe_cuisine"
+                            app:layout_constraintBottom_toTopOf="@id/chip_cuisine_divider"
+                            app:layout_constraintEnd_toStartOf="@id/chip_cuisine_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintWidth_percent="0.6" />
+
+                        <View
+                            android:id="@+id/chip_cuisine_divider"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/chip_cuisine_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/chip_cuisine_text"
+                            style="@style/my_chip_text_view"
+                            android:gravity="center|top"
+                            android:text="@{recipe.cuisine}"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@id/chip_cuisine_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/chip_cuisine_divider"
+                            app:layout_constraintWidth_percent="0.6" />
+
+                        <ImageView
+                            android:id="@+id/chip_cuisine_icon"
+                            style="@style/my_chip_icon"
+                            android:src="@drawable/flag"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent="1"
+                            app:layout_constraintStart_toEndOf="@id/chip_cuisine_text"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.4" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/chip_time"
+                        style="@style/my_chip"
+                        android:background="@drawable/round_corner3">
+
+                        <TextView
+                            android:id="@+id/time_label"
+                            style="@style/my_chip_text_view"
+                            android:gravity="center|bottom"
+                            android:text="@string/recipe_time"
+                            app:layout_constraintBottom_toTopOf="@id/chip_time_divider"
+                            app:layout_constraintEnd_toStartOf="@id/chip_time_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintWidth_percent="0.6" />
+
+                        <View
+                            android:id="@+id/chip_time_divider"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/chip_time_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/chip_time_text"
+                            style="@style/my_chip_text_view"
+                            android:gravity="center|top"
+                            android:text='@{String.valueOf(recipe.prepTime+recipe.totalTime)+" min"}'
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif"
+                            app:layout_constraintEnd_toStartOf="@id/chip_time_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/chip_time_divider"
+                            app:layout_constraintWidth_percent="0.6" />
+
+                        <ImageView
+                            android:id="@+id/chip_time_icon"
+                            style="@style/my_chip_icon"
+                            android:src="@drawable/time"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent="1"
+                            app:layout_constraintStart_toEndOf="@id/chip_time_text"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.4" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/chip_yield"
+                        style="@style/my_chip"
+                        android:background="@drawable/round_corner3">
+
+                        <TextView
+                            android:id="@+id/yield_label"
+                            style="@style/my_chip_text_view"
+                            android:gravity="center|bottom"
+                            android:text="@string/recipe_yield"
+                            app:layout_constraintBottom_toTopOf="@id/chip_yield_divider"
+                            app:layout_constraintEnd_toStartOf="@id/chip_yield_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintWidth_percent="0.6" />
+
+                        <View
+                            android:id="@+id/chip_yield_divider"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/chip_yield_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/chip_yield_text"
+                            style="@style/my_chip_text_view"
+                            android:gravity="center|top"
+                            android:text='@{recipe.yield}'
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif"
+                            app:layout_constraintEnd_toStartOf="@id/chip_yield_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/chip_yield_divider"
+                            app:layout_constraintWidth_percent="0.6" />
+
+                        <ImageView
+                            android:id="@+id/chip_yield_icon"
+                            style="@style/my_chip_icon"
+                            android:src="@drawable/person"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent="1"
+                            app:layout_constraintStart_toEndOf="@id/chip_yield_text"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.4" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recipe_section2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/recipe_details_sections_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_section1">
+
+                    <TextView
+                        android:id="@+id/recipe_description"
+                        style="@style/recipe_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/darkWhite"
+                        android:fontFamily="@font/majallab"
+                        android:text="@{recipe.description}"
+                        android:textColor="@color/dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/recipe_ingredients_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="false"
+                    android:padding="@dimen/recipe_details_sections_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_section2">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:id="@+id/ingredients_tab"
+                        android:background="@drawable/round_corner3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/ingredients_toggle"
+                        style="@style/tools_check_box"
+                        android:layout_height="20dp"
+                        android:button="@drawable/toggle"
+                        android:buttonTint="@color/white"
+                        android:checked="@{observer.show_ingredients.booleanValue()}"
+                        android:onClick="@{(v)->observer.toggleIngredients(v)}"
+                        app:layout_constraintBottom_toBottomOf="@id/ingredients_label"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/ingredients_label" />
+
+                    <TextView
+                        android:id="@+id/ingredients_label"
+                        style="@style/recipe_details_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:clickable="true"
+                        android:fontFamily="@font/advertisingbold"
+                        android:onClick="@{(v)->observer.toggleIngredients(v)}"
+                        android:text="@string/ingredients"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ingredients_toggle"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/my_card_view"
+                        android:visibility="@{observer.show_ingredients.booleanValue()?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ingredients_tab">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/ingredients_recycler"
+                            android:layout_width="match_parent"
+                            android:paddingBottom="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/recipe_instructions_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="false"
+                    android:padding="@dimen/recipe_details_sections_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_ingredients_section">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:id="@+id/instructions_tab"
+                        android:background="@drawable/round_corner3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/instructions_toggle"
+                        style="@style/tools_check_box"
+                        android:layout_width="17dp"
+                        android:layout_height="12dp"
+                        android:button="@drawable/toggle"
+                        android:buttonTint="@color/white"
+                        android:checked="@{observer.show_instructions.booleanValue()}"
+                        android:onClick="@{(v)->observer.toggleInstructions(v)}"
+                        app:layout_constraintBottom_toBottomOf="@id/instructions_label"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/instructions_label" />
+
+                    <TextView
+                        android:id="@+id/instructions_label"
+                        style="@style/recipe_details_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:clickable="true"
+                        android:fontFamily="@font/advertisingbold"
+                        android:onClick="@{(v)->observer.toggleInstructions(v)}"
+                        android:text="@string/instructions"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/instructions_toggle"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/my_card_view"
+                        android:visibility="@{observer.show_instructions.booleanValue()?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/instructions_tab">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/instructions_recycler"
+                            android:layout_width="match_parent"
+                            android:paddingBottom="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

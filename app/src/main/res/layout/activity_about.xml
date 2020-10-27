@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="about"
+            type="com.ma7moud3ly.akla.models.AboutViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="1dp"
+            android:gravity="start|center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="@dimen/header_top_padding"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:onClick="back"
+                android:src="@drawable/close"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/page_title"
+                style="@style/recipe_details_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/aehor"
+                android:text="@string/about"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout><!--header-->
+
+        <FrameLayout
+            style="@style/ripple_click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->about.rate(view)}"
+            android:padding="@dimen/about_section_layout_padding">
+
+            <ImageView
+                style="@style/about_image_view"
+                app:srcCompat="@drawable/rate" />
+
+            <TextView
+                style="@style/about_text_view"
+                android:text="@string/rate" />
+        </FrameLayout><!--section-->
+
+        <View style="@style/about_vr"/><!--vr-->
+
+        <FrameLayout
+            style="@style/ripple_click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->about.share(view)}"
+            android:padding="@dimen/about_section_layout_padding">
+
+            <ImageView
+                style="@style/about_image_view"
+                app:srcCompat="@drawable/share" />
+
+            <TextView
+                style="@style/about_text_view"
+                android:text="@string/share" />
+        </FrameLayout><!--section-->
+
+        <View style="@style/about_vr"/><!--vr-->
+
+        <FrameLayout
+            style="@style/ripple_click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->about.contact(view)}"
+            android:padding="@dimen/about_section_layout_padding">
+
+            <ImageView
+                android:id="@+id/rate_image_view"
+                style="@style/about_image_view"
+                app:srcCompat="@drawable/android" />
+
+            <TextView
+                style="@style/about_text_view"
+                android:text="@string/contact" />
+        </FrameLayout><!--section-->
+
+        <View style="@style/about_vr"/><!--vr-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/about_logo_wh"
+                android:layout_height="@dimen/about_logo_wh"
+                android:layout_margin="10dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                style="@style/my_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/majallab"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textSize="@dimen/about_text_view_font_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/app_version"
+                style="@style/about_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@{about.version}"
+                android:textSize="@dimen/about_text_view_font_size" />
+
+
+        </LinearLayout><!--footer-->
+
+
+    </LinearLayout>
+</layout>
+

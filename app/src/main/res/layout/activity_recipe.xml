@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.ma7moud3ly.akla.models.RecipeViewModel" />
+
+        <variable
+            name="observer"
+            type="com.ma7moud3ly.akla.observers.RecipeObserver" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/section_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:observer="@{observer}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/bubble_top_margin"
+            android:visibility="@{observer.state.intValue()==3?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:myLayoutManager="@{observer.split.intValue()}" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:elevation="1dp"
+            android:visibility="@{observer.state.intValue()==1?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
+        <ImageView
+            android:id="@+id/refresh"
+            style="@style/ripple_click"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="2dp"
+            android:src="@drawable/refresh"
+            android:visibility="@{observer.state.intValue()==2?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:tint="@color/colorPrimary" />
+
+
+        <LinearLayout
+            android:id="@+id/split_toggle_bubble"
+            style="@style/my_bubble"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <CheckBox
+                style="@style/tools_check_box"
+                android:layout_marginTop="5dp"
+                android:button="@drawable/split"
+                android:buttonTint="@color/white"
+                android:checked="@{observer.split.intValue()==2?true:false}"
+                android:gravity="center"
+                android:onClick="@{(v)->observer.splitRecycler(v)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bubble_fave"
+            style="@style/my_bubble"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/split_toggle_bubble"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <ImageView
+                style="@style/my_bubble_btn"
+                android:onClick="@{(v)->observer.openFavRecipes(v)}"
+                app:srcCompat="@drawable/faved" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/my_bubble"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/bubble_fave"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <ImageView
+                android:id="@+id/bubble_refresh_btn"
+                style="@style/my_bubble_btn"
+                app:srcCompat="@drawable/refresh" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/my_bubble"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <ImageView
+                style="@style/my_bubble_btn"
+                android:onClick="@{(v)->observer.openAbout(v)}"
+                app:srcCompat="@drawable/menu" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="@dimen/bubble_rl_margin"
+            android:layout_marginTop="@dimen/bubble_top_margin"
+            android:background="@color/colorPrimary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

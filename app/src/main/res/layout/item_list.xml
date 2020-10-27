@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_item_text_view"
+    style="@style/my_text_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="marquee"
+    android:fontFamily="@font/majallab"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp"
+    android:singleLine="true"
+    android:textAlignment="inherit"
+    android:textColor="@color/black"
+    android:textSize="18sp" />
