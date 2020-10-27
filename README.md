@@ -35,7 +35,7 @@ Food Recipe application..
 ### Technologies:
 <li>Kotlin</li>
 <li>MVVM architecture</li>
-<li>Kotlin coroutiens and live data</li>
+<li>Kotlin coroutins and live data</li>
 <li>Data/View binding</li>
 <li>Room Database</li>
 <li>Material components</li>
