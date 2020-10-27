@@ -44,6 +44,9 @@ Food Recipe application..
 - Retorfit
 - Picasso
 
+### more..
+- Python used for recipes scrapping.
+- Node.js used for building the web service
 
 <br>
 [Download](https://play.google.com/store/apps/details?id=com.ma7moud3ly.akla)
