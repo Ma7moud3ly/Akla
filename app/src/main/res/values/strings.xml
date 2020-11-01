@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">أكلة AKLA</string>
-    <string name="app_name_en">AKLA</string>
-    <string name="app_name_ar">أكلة</string>
+    <string name="app_name">عيش وملح</string>
     <!--activity_recipe layout-->
     <string name="loading">Loading...</string>
     <string name="no_internet">لا يوجد إتصال بالإنترنت!</string>

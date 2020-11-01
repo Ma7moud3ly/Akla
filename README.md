@@ -3,8 +3,8 @@
     <img src="images/logo.png" alt="drawing" width="100"/>
   </a>
 
-# Akla أكلة  
-Food Recipe application..
+# عيش وملح 
+A recipe application comes with thousands of famous food recipes with step by step instructions and accurate ingredients guide. 
 </div>
 
 

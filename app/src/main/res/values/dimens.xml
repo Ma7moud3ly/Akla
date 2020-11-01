@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="splash_logo_wh">80dp</dimen>
+    <dimen name="splash_logo_wh">100dp</dimen>
     <!--activity_recipe layout-->
     <dimen name="split_icon_wh">30dp</dimen>
     <dimen name="bubble_top_margin">2dp</dimen>

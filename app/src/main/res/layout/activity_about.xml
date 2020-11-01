@@ -112,7 +112,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="@dimen/about_logo_wh"
                 android:layout_height="@dimen/about_logo_wh"
                 android:layout_margin="10dp"
@@ -131,11 +131,11 @@
 
             <TextView
                 android:id="@+id/app_version"
-                style="@style/about_text_view"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
+                android:layout_marginHorizontal="5dp"
                 android:gravity="center"
                 android:text="@{about.version}"
                 android:textSize="@dimen/about_text_view_font_size" />
